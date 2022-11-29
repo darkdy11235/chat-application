@@ -2,14 +2,19 @@ package com.example.chat_application;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.MediaRouteButton;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.util.Patterns;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.FirebaseDatabase;
 
 public class Register extends AppCompatActivity {
     private FirebaseAuth mAuth;
@@ -75,7 +80,28 @@ public class Register extends AppCompatActivity {
             return;
         }
 
+        sign_up.setVisibility(View.INVISIBLE);
 
-        mAuth.createUserWithEmailAndPassword(email_text, password_text);
+        mAuth.createUserWithEmailAndPassword(email_text, password_text)
+                .addOnCompleteListener(task -> {
+                    if (task.isSuccessful()) {
+                        FirebaseUser user = task.getResult().getUser();
+                        if (user != null) {
+                                    Toast.makeText(Register.this, "User has been registered successfully", Toast.LENGTH_LONG).show();
+                                    sign_up.setVisibility(View.VISIBLE);
+                                    startActivity(new Intent(Register.this, Sign_in.class));
+                        } else {
+                                    Toast.makeText(Register.this, "Failed to register! Try again!", Toast.LENGTH_LONG).show();
+                                    sign_up.setVisibility(View.VISIBLE);
+                        }
+                    } else {
+                        if(task.getException().getMessage().equals("The email address is already in use by another account.")) {
+                            email.setError("The email address is already in use by another account");
+                        } else {
+                            Toast.makeText(Register.this, task.getException().getMessage(), Toast.LENGTH_LONG).show();
+                        }
+                        sign_up.setVisibility(View.VISIBLE);
+                    }
+                });
     }
 }
