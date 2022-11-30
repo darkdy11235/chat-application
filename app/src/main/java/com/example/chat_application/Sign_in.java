@@ -14,12 +14,15 @@ import com.google.android.gms.auth.api.signin.GoogleSignInClient;
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
 import com.google.android.gms.common.api.ApiException;
 import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.FirebaseAuth;
 
 public class Sign_in extends AppCompatActivity {
     GoogleSignInOptions gso;
     GoogleSignInClient gsc;
     Button googlebtn;
     TextView forgot_password, register;
+    private FirebaseAuth mAuth;
+    private Button sign_in;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -45,6 +48,15 @@ public class Sign_in extends AppCompatActivity {
         register.setOnClickListener(v -> {
             startActivity(new Intent(Sign_in.this, Register.class));
         });
+
+        sign_in = findViewById(R.id.button_sign_in);
+        sign_in.setOnClickListener(v -> {
+            Sign_in_with_email();
+        });
+    }
+
+    private void Sign_in_with_email() {
+
     }
 
     private void SignIn() {
