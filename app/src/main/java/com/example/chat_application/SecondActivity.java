@@ -11,12 +11,14 @@ import com.google.android.gms.auth.api.signin.GoogleSignIn;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
 import com.google.android.gms.auth.api.signin.GoogleSignInClient;
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
+import com.google.firebase.auth.FirebaseAuth;
 
 public class SecondActivity extends AppCompatActivity {
     GoogleSignInOptions gso;
     GoogleSignInClient gsc;
     TextView name,email;
     Button signout;
+    private FirebaseAuth mAuth;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -32,6 +34,12 @@ public class SecondActivity extends AppCompatActivity {
         if (account != null) {
             String personName = account.getDisplayName();
             String personEmail = account.getEmail();
+            name.setText(personName);
+            email.setText(personEmail);
+        } else {
+            mAuth = FirebaseAuth.getInstance();
+            String personName = mAuth.getCurrentUser().getDisplayName();
+            String personEmail = mAuth.getCurrentUser().getEmail();
             name.setText(personName);
             email.setText(personEmail);
         }

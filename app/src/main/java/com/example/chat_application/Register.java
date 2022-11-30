@@ -14,6 +14,7 @@ import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.auth.UserProfileChangeRequest;
 import com.google.firebase.database.FirebaseDatabase;
 
 public class Register extends AppCompatActivity {
@@ -44,6 +45,7 @@ public class Register extends AppCompatActivity {
         String password_text = password.getText().toString().trim();
         String confirm_password_text = confirm_password.getText().toString().trim();
         String name_text = full_name.getText().toString().trim();
+
         if(name_text.isEmpty()) {
             full_name.setError("Username is required");
             full_name.requestFocus();
@@ -79,29 +81,42 @@ public class Register extends AppCompatActivity {
             confirm_password.requestFocus();
             return;
         }
-
         sign_up.setVisibility(View.INVISIBLE);
+        mAuth = FirebaseAuth.getInstance();
+        mAuth.createUserWithEmailAndPassword(email_text, password_text).addOnCompleteListener(task -> {
+            if(task.isSuccessful()) {
 
-        mAuth.createUserWithEmailAndPassword(email_text, password_text)
-                .addOnCompleteListener(task -> {
-                    if (task.isSuccessful()) {
-                        FirebaseUser user = task.getResult().getUser();
-                        if (user != null) {
-                                    Toast.makeText(Register.this, "User has been registered successfully", Toast.LENGTH_LONG).show();
-                                    sign_up.setVisibility(View.VISIBLE);
-                                    startActivity(new Intent(Register.this, Sign_in.class));
-                        } else {
-                                    Toast.makeText(Register.this, "Failed to register! Try again!", Toast.LENGTH_LONG).show();
-                                    sign_up.setVisibility(View.VISIBLE);
-                        }
-                    } else {
-                        if(task.getException().getMessage().equals("The email address is already in use by another account.")) {
-                            email.setError("The email address is already in use by another account");
-                        } else {
-                            Toast.makeText(Register.this, task.getException().getMessage(), Toast.LENGTH_LONG).show();
-                        }
-                        sign_up.setVisibility(View.VISIBLE);
-                    }
-                });
+            } else {
+                Toast.makeText(Register.this, "Failed to register! Try again!", Toast.LENGTH_LONG).show();
+                sign_up.setVisibility(View.VISIBLE);
+            }
+        });
+
+//        mAuth.createUserWithEmailAndPassword(email_text, password_text)
+//                .addOnCompleteListener(task -> {
+//                    if (task.isSuccessful()) {
+//                        FirebaseUser user = task.getResult().getUser();
+//                        if (user != null) {
+////                            Log.d("Huynh trongkhao", "onComplete: " + user.getUid());
+//
+//                            Toast.makeText(Register.this, "User has been registered successfully", Toast.LENGTH_LONG).show();
+//                            UserProfileChangeRequest profileUpdates = new UserProfileChangeRequest.Builder().setDisplayName(name_text).build();
+//                            user.updateProfile(profileUpdates);
+//                            sign_up.setVisibility(View.VISIBLE);
+//                            startActivity(new Intent(Register.this, Sign_in.class));
+//                        } else {
+//                                    Toast.makeText(Register.this, "Failed to register! Try again!", Toast.LENGTH_LONG).show();
+//                                    sign_up.setVisibility(View.VISIBLE);
+//                        }
+//                    } else {
+//                        if(task.getException().getMessage().equals("The email address is already in use by another account.")) {
+//                            email.setError("The email address is already in use by another account");
+//                        } else {
+//                            Toast.makeText(Register.this, task.getException().getMessage(), Toast.LENGTH_LONG).show();
+//                        }
+//                        sign_up.setVisibility(View.VISIBLE);
+//                    }
+//                });
     }
+
 }

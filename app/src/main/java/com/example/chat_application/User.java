@@ -7,19 +7,20 @@ public class User {
     private String imageURL;
     private String status;
 
-    public User(String name, String email, String id, String imageURL, String status) {
+    public User(String id, String name, String email, String imageURL, String status) {
+        this.id = id;
         this.name = name;
         this.email = email;
-        this.id = id;
         this.imageURL = imageURL;
         this.status = status;
     }
-    public User(String name, String email) {
-        this.name = name;
-        this.email = email;
+
+    public String getId() {
+        return id;
     }
 
-    public User() {
+    public void setId(String id) {
+        this.id = id;
     }
 
     public String getName() {
@@ -36,14 +37,6 @@ public class User {
 
     public void setEmail(String email) {
         this.email = email;
-    }
-
-    public String getId() {
-        return id;
-    }
-
-    public void setId(String id) {
-        this.id = id;
     }
 
     public String getImageURL() {
