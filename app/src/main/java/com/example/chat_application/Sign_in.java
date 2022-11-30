@@ -1,10 +1,13 @@
 package com.example.chat_application;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -13,7 +16,9 @@ import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
 import com.google.android.gms.auth.api.signin.GoogleSignInClient;
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
 import com.google.android.gms.common.api.ApiException;
+import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 
 public class Sign_in extends AppCompatActivity {
@@ -23,6 +28,7 @@ public class Sign_in extends AppCompatActivity {
     TextView forgot_password, register;
     private FirebaseAuth mAuth;
     private Button sign_in;
+    private EditText email, password;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -53,10 +59,39 @@ public class Sign_in extends AppCompatActivity {
         sign_in.setOnClickListener(v -> {
             Sign_in_with_email();
         });
+        email = findViewById(R.id.editTextTextPersonName_email);
+        password = findViewById(R.id.editTextTextPassword_password);
     }
 
     private void Sign_in_with_email() {
-
+        String email_text = email.getText().toString();
+        String password_text = password.getText().toString();
+        mAuth = FirebaseAuth.getInstance();
+        if (email_text.isEmpty()) {
+            email.setError("Email is required");
+            email.requestFocus();
+            return;
+        }
+        if (password_text.isEmpty()) {
+            password.setError("Password is required");
+            password.requestFocus();
+            return;
+        }
+        if (password_text.length() < 6) {
+            password.setError("Password must be greater than 6 characters");
+            password.requestFocus();
+            return;
+        }
+        mAuth.signInWithEmailAndPassword(email_text, password_text).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+            @Override
+            public void onComplete(@NonNull Task<AuthResult> task) {
+                if (task.isSuccessful()) {
+                    navigateToSecondActivity();
+                } else {
+                    Toast.makeText(Sign_in.this, "Failed to login! Please check your credentials", Toast.LENGTH_LONG).show();
+                }
+            }
+        });
     }
 
     private void SignIn() {
