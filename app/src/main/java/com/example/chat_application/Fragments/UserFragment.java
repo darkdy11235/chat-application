@@ -90,22 +90,25 @@ public class UserFragment extends Fragment {
         return view;
     }
     private void readUsers() {
-        FirebaseUser firebaseUser = FirebaseAuth.getInstance().getCurrentUser();
-        DatabaseReference reference = FirebaseDatabase.getInstance().getReference("Users");
-        reference.addValueEventListener(new ValueEventListener() {
+        FirebaseAuth firebaseAuth = FirebaseAuth.getInstance();
+        FirebaseUser firebaseUser = firebaseAuth.getCurrentUser();
+        DatabaseReference reference = FirebaseDatabase.getInstance().getReference();
+        reference.child("Users").addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 mUsers.clear();
-                for (DataSnapshot snapshot1 : snapshot.getChildren()) {
-                    User user = snapshot1.getValue(User.class);
+                for (DataSnapshot dataSnapshot : snapshot.getChildren()) {
+                    User user = dataSnapshot.getValue(User.class);
                     assert user != null;
                     assert firebaseUser != null;
+
+                    Log.d("UserFragment", "id: " + user.getId());
+                    Log.d("UserFragment", "onDataChange: " + user.getUsername());
                     if (!user.getId().equals(firebaseUser.getUid())) {
                         mUsers.add(user);
-                        Log.d(mUsers.toString(), "onDataChange: ");
                     }
                 }
-                userAdapter = new userAdapter(getContext(), mUsers);
+                userAdapter = new userAdapter(getContext(), mUsers, false);
                 recyclerView.setAdapter(userAdapter);
             }
 
@@ -113,7 +116,29 @@ public class UserFragment extends Fragment {
             public void onCancelled(@NonNull DatabaseError error) {
 
             }
-
         });
+//        reference.addValueEventListener(new ValueEventListener() {
+//            @Override
+//            public void onDataChange(@NonNull DataSnapshot snapshot) {
+//                mUsers.clear();
+//                for (DataSnapshot snapshot1 : snapshot.getChildren()) {
+//                    User user = snapshot1.getValue(User.class);
+//                    assert user != null;
+//                    assert firebaseUser != null;
+//                    if (!user.getId().equals(firebaseUser.getUid())) {
+//                        mUsers.add(user);
+//                        Log.d(mUsers.toString(), "onDataChange: ");
+//                    }
+//                }
+//                userAdapter = new userAdapter(getContext(), mUsers);
+//                recyclerView.setAdapter(userAdapter);
+//            }
+//
+//            @Override
+//            public void onCancelled(@NonNull DatabaseError error) {
+//
+//            }
+//
+//        });
     }
 }

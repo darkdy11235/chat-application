@@ -2,7 +2,7 @@ package com.example.chat_application.Adapter;
 
 import android.content.Context;
 import android.content.Intent;
-import android.util.AttributeSet;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,7 +10,6 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
@@ -24,7 +23,7 @@ public class userAdapter extends RecyclerView.Adapter<userAdapter.ViewHolder> {
     private Context mContext;
     private List<User> mUsers;
 
-    public userAdapter(Context mContext, List<User> mUsers) {
+    public userAdapter(Context mContext, List<User> mUsers, boolean b) {
         this.mContext = mContext;
         this.mUsers = mUsers;
     }
@@ -39,7 +38,10 @@ public class userAdapter extends RecyclerView.Adapter<userAdapter.ViewHolder> {
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         User user = mUsers.get(position);
-        holder.username.setText(user.getName());
+        holder.username.setText(user.getUsername());
+        Log.d("TAG", "zzz: " + user.toString());
+        Log.d("TAG", "ddd: " + user.getUsername());
+
         if (user.getImageURL().equals("default")) {
             holder.profile_image.setImageResource(R.mipmap.ic_launcher);
         } else {
