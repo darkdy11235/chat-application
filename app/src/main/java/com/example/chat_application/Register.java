@@ -2,10 +2,8 @@ package com.example.chat_application;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.app.MediaRouteButton;
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.util.Patterns;
 import android.view.View;
 import android.widget.Button;
@@ -15,12 +13,16 @@ import android.widget.Toast;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.UserProfileChangeRequest;
+import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+
+import java.util.HashMap;
 
 public class Register extends AppCompatActivity {
     private FirebaseAuth mAuth;
     private Button sign_in,sign_up;
-    private EditText email,password,confirm_password,full_name;
+    private EditText email,password,confirm_password,user_name;
+    private DatabaseReference reference;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -30,7 +32,7 @@ public class Register extends AppCompatActivity {
         email = (EditText) findViewById(R.id.editText_email);
         password = (EditText) findViewById(R.id.editText_password);
         confirm_password = (EditText) findViewById(R.id.editText_confirm_password);
-        full_name = (EditText) findViewById(R.id.editText_name);
+        user_name = (EditText) findViewById(R.id.editText_userName);
 
         mAuth = FirebaseAuth.getInstance();
 
@@ -44,11 +46,11 @@ public class Register extends AppCompatActivity {
         String email_text = email.getText().toString().trim();
         String password_text = password.getText().toString().trim();
         String confirm_password_text = confirm_password.getText().toString().trim();
-        String name_text = full_name.getText().toString().trim();
-
-        if(name_text.isEmpty()) {
-            full_name.setError("Username is required");
-            full_name.requestFocus();
+        String user_name_text = user_name.getText().toString().trim();
+        mAuth = FirebaseAuth.getInstance();
+        if(user_name_text.isEmpty()) {
+            user_name.setError("Username is required");
+            user_name.requestFocus();
             return;
         }
         if(email_text.isEmpty()) {
@@ -85,9 +87,31 @@ public class Register extends AppCompatActivity {
         mAuth = FirebaseAuth.getInstance();
         mAuth.createUserWithEmailAndPassword(email_text, password_text).addOnCompleteListener(task -> {
             if(task.isSuccessful()) {
-
+                FirebaseUser userFireBase = FirebaseAuth.getInstance().getCurrentUser();
+                assert userFireBase != null;
+                String uid = userFireBase.getUid();
+                reference = FirebaseDatabase.getInstance().getReference("Users").child(uid);
+                HashMap<String, String> hashMap = new HashMap<>();
+                hashMap.put("id", uid);
+                hashMap.put("username", user_name_text);
+                hashMap.put("email", email_text);
+                hashMap.put("imageURL", "default");
+                hashMap.put("status", "offline");
+                reference.setValue(hashMap).addOnCompleteListener(task1 -> {
+                    if(task1.isSuccessful()) {
+                        Toast.makeText(Register.this, task1.getException().toString(), Toast.LENGTH_LONG).show();
+                        Intent intent = new Intent(Register.this,   Sign_in.class);
+                        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
+                        startActivity(intent);
+                        finish();
+                    }
+                    else {
+                        Toast.makeText(Register.this, task1.getException().toString(), Toast.LENGTH_LONG).show();
+                        sign_up.setVisibility(View.VISIBLE);
+                    }
+                });
             } else {
-                Toast.makeText(Register.this, "Failed to register! Try again!", Toast.LENGTH_LONG).show();
+                Toast.makeText(Register.this, task.getException().toString(), Toast.LENGTH_LONG).show();
                 sign_up.setVisibility(View.VISIBLE);
             }
         });
