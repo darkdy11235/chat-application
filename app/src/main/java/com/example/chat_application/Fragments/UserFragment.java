@@ -7,6 +7,7 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -101,6 +102,7 @@ public class UserFragment extends Fragment {
                     assert firebaseUser != null;
                     if (!user.getId().equals(firebaseUser.getUid())) {
                         mUsers.add(user);
+                        Log.d(mUsers.toString(), "onDataChange: ");
                     }
                 }
                 userAdapter = new userAdapter(getContext(), mUsers);

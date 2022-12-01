@@ -118,7 +118,7 @@ public class Sign_in extends AppCompatActivity {
     }
 
     private void navigateToSecondActivity() {
-        Intent intent = new Intent( Sign_in.this, SecondActivity.class);
+        Intent intent = new Intent( Sign_in.this, MainActivity.class);
         startActivity(intent);
     }
 }
