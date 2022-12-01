@@ -1,21 +1,15 @@
 package com.example.chat_application;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
-import android.widget.Toast;
 
+import com.example.chat_application.Fragments.MessageFragment;
+import com.example.chat_application.Fragments.ProfileFragment;
+import com.example.chat_application.Fragments.UserFragment;
 import com.example.chat_application.databinding.ActivityMainBinding;
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.ValueEventListener;
 
 public class MainActivity extends AppCompatActivity {
     ActivityMainBinding binding;
@@ -30,6 +24,9 @@ public class MainActivity extends AppCompatActivity {
             switch (item.getItemId()) {
                 case R.id.message:
                     replaceFragment(new MessageFragment());
+                    break;
+                case R.id.user:
+                    replaceFragment(new UserFragment());
                     break;
                 case R.id.profile:
                     replaceFragment(new ProfileFragment());
