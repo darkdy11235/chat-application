@@ -20,7 +20,7 @@
         android:layout_width="194dp"
         android:layout_height="69dp"
         android:text="Get Started"
-        android:textColor="#E8E8E8"
+        android:textColor="#FFFFFF"
         android:textSize="20sp"
         app:backgroundTint="#000000"
         app:cornerRadius="30dp"
