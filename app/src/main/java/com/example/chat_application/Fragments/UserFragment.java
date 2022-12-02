@@ -11,6 +11,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import com.example.chat_application.Adapter.userAdapter;
 import com.example.chat_application.R;
@@ -98,6 +99,7 @@ public class UserFragment extends Fragment {
                 mUsers.clear();
                 for (DataSnapshot snapshot1 : snapshot.getChildren()) {
                     User user = snapshot1.getValue(User.class);
+                    Toast.makeText(getContext(), "User: " + user, Toast.LENGTH_LONG).show();
                     assert user != null;
                     assert firebaseUser != null;
                     if (!user.getId().equals(firebaseUser.getUid())) {

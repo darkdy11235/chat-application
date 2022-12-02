@@ -32,10 +32,15 @@
                 android:textSize="20sp" />
         </androidx.appcompat.widget.Toolbar>
     </com.google.android.material.appbar.AppBarLayout>
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recycler_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/bar_layout" />
     <RelativeLayout
         android:layout_width="match_parent"
         android:padding="5dp"
-        android:background="#ffffff"
+        android:background="@drawable/round_back_light_10"
         android:layout_alignParentBottom="true"
         android:layout_gravity="center"
         android:layout_height="wrap_content">
@@ -44,20 +49,19 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Type a message"
-            android:background="@drawable/round_back_light_10"
+            android:background="@android:color/transparent"
             android:padding="10dp"
             android:layout_toLeftOf="@+id/btn_send"
             android:layout_centerVertical="true"/>
 
         <ImageButton
             android:id="@+id/btn_send"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
             android:layout_alignParentEnd="true"
             android:layout_alignParentRight="true"
 
-            android:layout_marginEnd="3dp"
-            android:layout_marginRight="3dp"
+            android:layout_margin="10dp"
             android:background="@drawable/black_bg_shape"
             android:src="@drawable/arrow_up" />
     </RelativeLayout>
