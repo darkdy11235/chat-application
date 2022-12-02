@@ -3,6 +3,7 @@ package com.example.chat_application.Adapter;
 import android.content.Context;
 import android.content.Intent;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -40,6 +41,7 @@ public class userAdapter extends RecyclerView.Adapter<userAdapter.ViewHolder> {
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         User user = mUsers.get(position);
         holder.username.setText(user.getName());
+        Log.d("TAG", "onBindViewHolder: " + user.getName());
         if (user.getImageURL().equals("default")) {
             holder.profile_image.setImageResource(R.mipmap.ic_launcher);
         } else {
