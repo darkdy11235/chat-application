@@ -2,14 +2,14 @@ package com.example.chat_application;
 
 public class User {
     private String id;
-    private String name;
+    private String username;
     private String email;
     private String imageURL;
     private String status;
     public User() {}
-    public User(String id, String name, String email, String imageURL, String status) {
+    public User(String id, String username, String email, String imageURL, String status) {
         this.id = id;
-        this.name = name;
+        this.username = username;
         this.email = email;
         this.imageURL = imageURL;
         this.status = status;
@@ -23,12 +23,12 @@ public class User {
         this.id = id;
     }
 
-    public String getName() {
-        return name;
+    public String getUsername() {
+        return username;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setUsername(String username) {
+        this.username = username;
     }
 
     public String getEmail() {

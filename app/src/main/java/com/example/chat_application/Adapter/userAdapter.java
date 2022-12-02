@@ -40,8 +40,7 @@ public class userAdapter extends RecyclerView.Adapter<userAdapter.ViewHolder> {
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         User user = mUsers.get(position);
-        holder.username.setText(user.getName());
-        Log.d("TAG", "onBindViewHolder: " + user.getName());
+        holder.username.setText(user.getUsername());
         if (user.getImageURL().equals("default")) {
             holder.profile_image.setImageResource(R.mipmap.ic_launcher);
         } else {
