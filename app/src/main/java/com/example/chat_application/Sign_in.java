@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -18,17 +19,18 @@ import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
 import com.google.android.gms.common.api.ApiException;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
+import com.google.android.material.button.MaterialButton;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 
 public class Sign_in extends AppCompatActivity {
     GoogleSignInOptions gso;
     GoogleSignInClient gsc;
-    Button googlebtn;
+    LinearLayout googlebtn;
     TextView forgot_password, register;
-    private FirebaseAuth mAuth;
-    private Button sign_in;
-    private EditText email, password;
+    FirebaseAuth mAuth;
+    MaterialButton sign_in;
+    EditText email, password;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
