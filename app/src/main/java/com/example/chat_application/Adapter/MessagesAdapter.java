@@ -71,7 +71,7 @@ public class MessagesAdapter extends RecyclerView.Adapter<MessagesAdapter.ViewHo
         public ImageView profile_image;
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
-            show_message = itemView.findViewById(R.id.username);
+            show_message = itemView.findViewById(R.id.show_message);
             profile_image = itemView.findViewById(R.id.profile_image);
 
         }
@@ -82,7 +82,7 @@ public class MessagesAdapter extends RecyclerView.Adapter<MessagesAdapter.ViewHo
         fuser = FirebaseAuth.getInstance().getCurrentUser();
         if(mChat.get(position).getSender().equals(fuser.getUid())) {
             return MSG_TYPE_RIGHT;
-        } else return MSG_TYPE_RIGHT;
+        } else return MSG_TYPE_LEFT;
     }
 }
 
