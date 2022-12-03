@@ -12,50 +12,91 @@
         android:layout_marginStart="1dp"
         android:layout_marginTop="1dp"
         android:orientation="vertical"
+        android:background="@drawable/signin_bgr"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
+        <TextView
+            android:id="@+id/textView6"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="50dp"
+            android:layout_marginBottom="30dp"
+            android:text="Register"
+            android:textAlignment="center"
+            android:textColor="#FFFFFF"
+            android:textSize="28sp"
+            android:textStyle="bold" />
+
         <EditText
             android:id="@+id/editText_userName"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="40dp"
+            android:layout_marginLeft="25dp"
+            android:layout_marginRight="25dp"
+            android:background="@drawable/bgr_edittext"
             android:hint="user_name"
-            android:inputType="textPersonName" />
+            android:inputType="textPersonName"
+            android:paddingLeft="12dp"/>
 
         <EditText
             android:id="@+id/editText_email"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="40dp"
+            android:layout_marginLeft="25dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginRight="25dp"
+            android:background="@drawable/bgr_edittext"
             android:hint="email"
-            android:inputType="textEmailAddress" />
+            android:inputType="textEmailAddress"
+            android:paddingLeft="12dp"/>
 
         <EditText
             android:id="@+id/editText_password"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="40dp"
+            android:layout_marginLeft="25dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginRight="25dp"
+            android:background="@drawable/bgr_edittext"
+            android:paddingLeft="12dp"
             android:hint="pass"
             android:inputType="textPassword" />
 
         <EditText
             android:id="@+id/editText_confirm_password"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="40dp"
+            android:layout_marginLeft="25dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginRight="25dp"
+            android:background="@drawable/bgr_edittext"
             android:hint="confirm pass"
+            android:paddingLeft="12dp"
             android:inputType="textPassword" />
 
-        <Button
+        <com.google.android.material.button.MaterialButton
             android:id="@+id/button_signup"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Sign Up" />
+            android:layout_height="60dp"
+            android:layout_marginLeft="25dp"
+            android:layout_marginTop="30dp"
+            android:layout_marginRight="25dp"
+            android:text="Sign Up"
+            app:cornerRadius="10dp"
+            app:backgroundTint="#9F0037" />
 
-        <Button
+        <com.google.android.material.button.MaterialButton
             android:id="@+id/button_signin"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Login" />
+            android:layout_height="60dp"
+            android:layout_marginLeft="25dp"
+            android:layout_marginRight="25dp"
+            android:text="Login"
+            app:cornerRadius="10dp"
+            app:backgroundTint="#000000" />
 
 
 

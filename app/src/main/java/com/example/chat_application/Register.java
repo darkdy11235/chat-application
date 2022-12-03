@@ -10,6 +10,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.google.android.material.button.MaterialButton;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.UserProfileChangeRequest;
@@ -20,15 +21,15 @@ import java.util.HashMap;
 
 public class Register extends AppCompatActivity {
     private FirebaseAuth mAuth;
-    private Button sign_in,sign_up;
+    private MaterialButton sign_in,sign_up;
     private EditText email,password,confirm_password,user_name;
     private DatabaseReference reference;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
-        sign_in = (Button) findViewById(R.id.button_signin);
-        sign_up = (Button) findViewById(R.id.button_signup);
+        sign_in = (MaterialButton) findViewById(R.id.button_signin);
+        sign_up = (MaterialButton) findViewById(R.id.button_signup);
         email = (EditText) findViewById(R.id.editText_email);
         password = (EditText) findViewById(R.id.editText_password);
         confirm_password = (EditText) findViewById(R.id.editText_confirm_password);
@@ -39,6 +40,11 @@ public class Register extends AppCompatActivity {
         sign_up.setOnClickListener(new Button.OnClickListener() {
             public void onClick(View v) {
                 registerUser();
+            }
+        });
+        sign_in.setOnClickListener(new Button.OnClickListener() {
+            public void onClick(View v) {
+                startActivity(new Intent(Register.this, Sign_in.class));
             }
         });
     }

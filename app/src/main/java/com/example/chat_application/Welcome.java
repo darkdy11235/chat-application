@@ -27,7 +27,9 @@ public class Welcome extends AppCompatActivity {
         String path = "android.resource://" + getPackageName() + "/" + R.raw.video;
         videoView.setVideoPath(path);
         videoView.start();
-
+        videoView.setOnPreparedListener(mp -> {
+            mp.setLooping(true);
+        });
         Start.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
