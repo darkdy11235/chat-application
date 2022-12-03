@@ -4,8 +4,10 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
@@ -36,6 +38,10 @@ public class Sign_in extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sign_in);
 
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
+            getWindow().setFlags(WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS, WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS);
+        }
+
         googlebtn = findViewById(R.id.google_btn);
         gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
                 .requestEmail()
@@ -51,7 +57,7 @@ public class Sign_in extends AppCompatActivity {
         });
         forgot_password = findViewById(R.id.textView_forgot_password);
         forgot_password.setOnClickListener(v -> {
-            startActivity(new Intent(Sign_in.this, Sign_in.class));
+            startActivity(new Intent(Sign_in.this, Forgot_Password.class));
         });
         register = findViewById(R.id.textView_register);
         register.setOnClickListener(v -> {
