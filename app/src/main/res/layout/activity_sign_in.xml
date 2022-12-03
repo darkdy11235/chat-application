@@ -3,43 +3,16 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
+    android:layout_height="match_parent"
     tools:context=".Sign_in">
-
-    <ImageView
-        android:id="@+id/imageView3"
-        android:layout_width="443dp"
-        android:layout_height="663dp"
-        android:layout_marginTop="744dp"
-        android:layout_marginEnd="16dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.508"
-        app:srcCompat="@drawable/union_green" />
-
-    <ImageView
-        android:id="@+id/imageView_2"
-        android:layout_width="800dp"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="14dp"
-        android:layout_marginBottom="44dp"
-        app:layout_constraintBottom_toTopOf="@+id/imageView3"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.483"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0"
-        app:srcCompat="@drawable/union_pink" />
 
     <LinearLayout
         android:id="@+id/linearLayout"
-        android:layout_width="409dp"
-        android:layout_height="729dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
         android:layout_marginStart="1dp"
         android:layout_marginTop="1dp"
+        android:background="@drawable/signin_bgr"
         android:orientation="vertical"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
@@ -51,18 +24,20 @@
             android:layout_marginTop="50dp"
             android:text="S-CHAT"
             android:textAlignment="center"
-            android:textColor="#000000"
+            android:textColor="#EFEFEF"
             android:textSize="34sp"
             android:textStyle="bold" />
 
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="20dp"
+            android:layout_marginLeft="22dp"
             android:layout_marginTop="100dp"
-            android:layout_marginRight="20dp"
+            android:layout_marginRight="17dp"
             android:layout_marginBottom="20dp"
-            android:orientation="horizontal">
+            android:background="@drawable/bgr_edittext"
+            android:orientation="horizontal"
+            android:padding="6dp">
 
             <ImageView
                 android:id="@+id/imageView"
@@ -77,15 +52,21 @@
                 android:layout_height="wrap_content"
                 android:ems="16"
                 android:hint="email"
-                android:inputType="textPersonName" />
+                android:inputType="textPersonName"
+                android:paddingLeft="12dp" />
 
         </LinearLayout>
 
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_margin="20dp"
-            android:orientation="horizontal">
+            android:layout_marginLeft="22dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginBottom="20dp"
+            android:background="@drawable/bgr_edittext"
+            android:orientation="horizontal"
+            android:padding="6dp">
 
             <ImageView
                 android:id="@+id/imageView2"
@@ -111,9 +92,10 @@
             android:layout_marginTop="20dp"
             android:layout_marginRight="25dp"
             android:text="Login"
-            android:textSize="16sp"
-            app:backgroundTint="#000000"
-            app:cornerRadius="30dp" />
+            android:textSize="20sp"
+            android:textStyle="bold"
+            app:backgroundTint="#9F0037"
+            app:cornerRadius="10dp" />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -125,16 +107,20 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="32dp"
-                android:text="Forgot Password?" />
+                android:text="Forgot Password?"
+                android:textColor="#FFFFFF"
+                android:textStyle="bold|italic" />
 
             <TextView
                 android:id="@+id/textView_register"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginRight="32dp"
+                android:layout_marginRight="35dp"
                 android:layout_weight="1"
                 android:text="Register"
-                android:textAlignment="textEnd" />
+                android:textAlignment="textEnd"
+                android:textColor="#FFFFFF"
+                android:textStyle="bold" />
 
         </LinearLayout>
 
@@ -145,18 +131,18 @@
             android:layout_marginTop="12dp"
             android:text="Or Sign in with"
             android:textAlignment="center"
-            android:textColor="#3E3E3E"
+            android:textColor="#FFFFFF"
             android:textSize="16sp" />
 
 
         <LinearLayout
             android:id="@+id/google_btn"
-            android:layout_width="350dp"
-            android:layout_height="45dp"
+            android:layout_width="match_parent"
+            android:layout_height="38dp"
             android:layout_marginLeft="25dp"
             android:layout_marginTop="12dp"
             android:layout_marginRight="25dp"
-            android:background="@drawable/bgr_button"
+            android:background="@drawable/bgr_edittext"
             android:orientation="horizontal">
 
             <ImageView
@@ -164,7 +150,7 @@
                 android:layout_width="28dp"
                 android:layout_height="35dp"
                 android:layout_marginLeft="70dp"
-                android:layout_marginTop="5dp"
+                android:layout_marginTop="2dp"
                 app:srcCompat="@drawable/gg_icon" />
 
             <TextView
