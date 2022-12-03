@@ -4,8 +4,15 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".Fragments.UserFragment">
-
+    <EditText
+        android:id="@+id/search_users"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Search User"
+        android:padding="10dp"
+        android:textSize="16sp" />
     <androidx.recyclerview.widget.RecyclerView
+        android:layout_below="@+id/search_users"
         android:id="@+id/recyclerView"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
