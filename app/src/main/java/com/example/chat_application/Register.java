@@ -19,6 +19,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.HashMap;
+import java.util.Locale;
 
 public class Register extends AppCompatActivity {
     private FirebaseAuth mAuth;
@@ -105,6 +106,7 @@ public class Register extends AppCompatActivity {
                 hashMap.put("email", email_text);
                 hashMap.put("imageURL", "default");
                 hashMap.put("status", "offline");
+                hashMap.put("search", user_name_text.toLowerCase());
                 reference.setValue(hashMap).addOnCompleteListener(task1 -> {
                     if(task1.isSuccessful()) {
                         Toast.makeText(Register.this, task1.getException().toString(), Toast.LENGTH_LONG).show();
