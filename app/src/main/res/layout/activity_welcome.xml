@@ -8,8 +8,9 @@
 
     <VideoView
         android:id="@+id/videoView"
-        android:layout_width="1500dp"
+        android:layout_width="0dp"
         android:layout_height="match_parent"
+        app:layout_constraintDimensionRatio="8:4.5"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -20,9 +21,9 @@
         android:layout_width="194dp"
         android:layout_height="69dp"
         android:text="Get Started"
-        android:textColor="#FFFFFF"
+        android:textColor="#000000"
         android:textSize="20sp"
-        app:backgroundTint="#000000"
+        app:backgroundTint="#FFFFFF"
         app:cornerRadius="30dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
