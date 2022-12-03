@@ -65,7 +65,10 @@ public class Forgot_Password extends AppCompatActivity {
                     startActivity(intent);
                     finish();
                 } else {
-                    Toast.makeText(Forgot_Password.this, "Try again! Something wrong happened!", Toast.LENGTH_LONG).show();
+                    if (task.getException() != null) {
+                        Toast.makeText(Forgot_Password.this, task.getException().getMessage(), Toast.LENGTH_LONG).show();
+                    }
+
                 }
             }
         });
