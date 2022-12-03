@@ -15,11 +15,14 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.webkit.MimeTypeMap;
+import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
+import com.example.chat_application.MainActivity;
 import com.example.chat_application.R;
+import com.example.chat_application.Sign_in;
 import com.example.chat_application.User;
 import com.google.android.gms.tasks.Continuation;
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -44,7 +47,7 @@ import de.hdodenhof.circleimageview.CircleImageView;
 public class ProfileFragment extends Fragment {
     CircleImageView profile_image;
     TextView username;
-
+    Button btn_logout;
     DatabaseReference reference;
     FirebaseUser fuser;
     StorageReference storageReference;
@@ -88,6 +91,8 @@ public class ProfileFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_profile, container, false);
         profile_image = view.findViewById(R.id.profile_image);
         username = view.findViewById(R.id.username);
+        btn_logout = view.findViewById(R.id.sign_out);
+
         storageReference = FirebaseStorage.getInstance().getReference("uploads");
         fuser = FirebaseAuth.getInstance().getCurrentUser();
         reference = FirebaseDatabase.getInstance().getReference("Users").child(fuser.getUid());
@@ -112,6 +117,14 @@ public class ProfileFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 openImage();
+            }
+        });
+        btn_logout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                FirebaseAuth.getInstance().signOut();
+                startActivity(new Intent(getActivity(),Sign_in.class).setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP));
+
             }
         });
         return view;

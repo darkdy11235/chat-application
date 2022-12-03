@@ -18,6 +18,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 import com.example.chat_application.Adapter.MessagesAdapter;
+import com.example.chat_application.MainActivity;
 import com.example.chat_application.Model.Chat;
 import com.example.chat_application.R;
 import com.example.chat_application.User;
@@ -61,7 +62,7 @@ public class MessageActivity extends AppCompatActivity {
         toolbar.setNavigationOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                finish();
+                startActivity(new Intent(MessageActivity.this, MainActivity.class).setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP));
             }
         });
         recyclerView = findViewById(R.id.recycler_view);
