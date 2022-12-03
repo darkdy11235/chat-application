@@ -106,7 +106,7 @@ public class UserFragment extends Fragment {
                         Log.d(mUsers.toString(), "onDataChange: ");
                     }
                 }
-                userAdapter = new userAdapter(getContext(), mUsers);
+                userAdapter = new userAdapter(getContext(), mUsers,false);
                 recyclerView.setAdapter(userAdapter);
             }
 
