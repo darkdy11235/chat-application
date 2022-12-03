@@ -9,8 +9,7 @@
     <de.hdodenhof.circleimageview.CircleImageView
         android:id="@+id/profile_image"
         android:layout_width="60dp"
-        android:layout_height="60dp"
-
+        android:layout_height="65dp"
         android:src="@drawable/free_user_icon_3296_thumb" />
 
     <TextView
@@ -21,9 +20,11 @@
         android:layout_toRightOf="@+id/profile_image"
         android:layout_toEndOf="@id/profile_image"
         android:layout_marginLeft="10dp"
-        android:layout_centerVertical="true"
         android:textSize="20sp"
-        android:textColor="#000000" />
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="-5dp"
+        android:fontFamily="@font/poppins_medium"
+        android:textColor="#212529" />
     <de.hdodenhof.circleimageview.CircleImageView
         android:layout_width="15dp"
         android:layout_height="15dp"
@@ -58,11 +59,11 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/username"
         android:layout_toRightOf="@id/profile_image"
-        android:layout_marginTop="5dp"
-        android:paddingTop="5dp"
+        android:layout_marginBottom="-5dp"
+        android:textSize="16dp"
         android:id="@+id/last_msg"
-        android:textColor="@color/black"
-
-        android:layout_marginLeft="12dp"
+        android:textColor="#ADB5BD"
+        android:fontFamily="@font/poppins_medium"
+        android:layout_marginLeft="10dp"
         android:maxLines="1" />
 </RelativeLayout>
