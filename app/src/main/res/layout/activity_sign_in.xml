@@ -12,8 +12,9 @@
         android:layout_height="match_parent"
         android:layout_marginStart="1dp"
         android:layout_marginTop="1dp"
-        android:background="@drawable/signin_bgr"
+        android:gravity="center"
         android:orientation="vertical"
+        android:padding="20dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
@@ -21,21 +22,20 @@
             android:id="@+id/textView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="50dp"
             android:text="S-CHAT"
             android:textAlignment="center"
-            android:textColor="#EFEFEF"
+            android:textColor="#000000"
             android:textSize="34sp"
             android:textStyle="bold" />
 
         <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="22dp"
-            android:layout_marginTop="100dp"
-            android:layout_marginRight="17dp"
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:layout_marginTop="80dp"
             android:layout_marginBottom="20dp"
-            android:background="@drawable/bgr_edittext"
+            android:background="@drawable/bgr_edittext_back"
+            android:foregroundTint="#FFFFFF"
+            android:gravity="center_horizontal|center_vertical"
             android:orientation="horizontal"
             android:padding="6dp">
 
@@ -43,28 +43,28 @@
                 android:id="@+id/imageView"
                 android:layout_width="25dp"
                 android:layout_height="25dp"
-                android:layout_marginTop="10dp"
                 app:srcCompat="@drawable/user" />
 
             <EditText
                 android:id="@+id/editTextTextPersonName_email"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:ems="16"
+                android:background="@android:color/transparent"
                 android:hint="email"
                 android:inputType="textPersonName"
-                android:paddingLeft="12dp" />
+                android:paddingLeft="12dp"
+                android:textColor="#000000"
+                android:textColorHint="#8E8E8E" />
 
         </LinearLayout>
 
         <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="22dp"
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
             android:layout_marginTop="5dp"
-            android:layout_marginRight="20dp"
             android:layout_marginBottom="20dp"
-            android:background="@drawable/bgr_edittext"
+            android:background="@drawable/bgr_edittext_back"
+            android:gravity="center_horizontal|center_vertical"
             android:orientation="horizontal"
             android:padding="6dp">
 
@@ -72,29 +72,28 @@
                 android:id="@+id/imageView2"
                 android:layout_width="25dp"
                 android:layout_height="25dp"
-                android:layout_marginTop="10dp"
                 app:srcCompat="@drawable/key" />
 
             <EditText
                 android:id="@+id/editTextTextPassword_password"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:ems="16"
+                android:background="@android:color/transparent"
                 android:hint="password"
-                android:inputType="textPassword" />
+                android:inputType="textPassword"
+                android:paddingLeft="10dp"
+                android:textColorHint="#8E8E8E" />
         </LinearLayout>
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/button_sign_in"
             android:layout_width="match_parent"
             android:layout_height="60dp"
-            android:layout_marginLeft="25dp"
             android:layout_marginTop="20dp"
-            android:layout_marginRight="25dp"
             android:text="Login"
             android:textSize="20sp"
             android:textStyle="bold"
-            app:backgroundTint="#9F0037"
+            app:backgroundTint="#000000"
             app:cornerRadius="10dp" />
 
         <LinearLayout
@@ -106,20 +105,18 @@
                 android:id="@+id/textView_forgot_password"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="32dp"
                 android:text="Forgot Password?"
-                android:textColor="#FFFFFF"
+                android:textColor="#000000"
                 android:textStyle="bold|italic" />
 
             <TextView
                 android:id="@+id/textView_register"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginRight="35dp"
                 android:layout_weight="1"
                 android:text="Register"
                 android:textAlignment="textEnd"
-                android:textColor="#FFFFFF"
+                android:textColor="#000000"
                 android:textStyle="bold" />
 
         </LinearLayout>
@@ -128,10 +125,10 @@
             android:id="@+id/textView4"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="12dp"
+            android:layout_marginTop="20dp"
             android:text="Or Sign in with"
             android:textAlignment="center"
-            android:textColor="#FFFFFF"
+            android:textColor="#6C6C6C"
             android:textSize="16sp" />
 
 
@@ -139,9 +136,7 @@
             android:id="@+id/google_btn"
             android:layout_width="match_parent"
             android:layout_height="38dp"
-            android:layout_marginLeft="25dp"
-            android:layout_marginTop="12dp"
-            android:layout_marginRight="25dp"
+            android:layout_marginTop="25dp"
             android:background="@drawable/bgr_edittext"
             android:orientation="horizontal">
 
