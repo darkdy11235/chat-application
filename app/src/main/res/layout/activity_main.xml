@@ -14,30 +14,23 @@
     android:layout_alignParentTop="true"
     android:layout_height="wrap_content">
     <ImageView
-        android:layout_width="35dp"
-        android:layout_height="35dp"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
         android:layout_marginStart="20dp"
         android:layout_marginTop="40dp"
         android:layout_centerVertical="true"
-        android:src="@drawable/ic_baseline_search_24"
-        android:background="@drawable/round_back_light_10" />
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Messages"
-        android:textColor="#424242"
-        android:textStyle="bold"
-        android:layout_centerInParent="true"
-        android:textSize="18dp" />
+        android:src="@drawable/search"
+         />
+
     <ImageView
-        android:layout_width="35dp"
-        android:layout_height="35dp"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
         android:layout_marginEnd="20dp"
         android:layout_marginTop="40dp"
         android:layout_centerVertical="true"
         android:layout_alignParentEnd="true"
-        android:src="@drawable/free_user_icon_3296_thumb"
-        android:background="@drawable/round_back_light_10" />
+        android:src="@drawable/plus"
+         />
 
 </RelativeLayout>
 
@@ -49,7 +42,7 @@
         android:layout_alignParentTop="true"
         android:layout_centerVertical="true"
         android:layout_marginTop="79dp"
-        android:background="@color/theme_color_80" />
+        android:background="#FFFFFF" />
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottomNavigationView"
@@ -57,8 +50,13 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         app:menu="@menu/menu"
-        android:background="@drawable/round_back_light_10"
-        android:padding="5dp"
+        android:background="#F8F9FA"
+        android:padding="10dp"
+        app:labelVisibilityMode="unlabeled"
+        app:itemIconTint="@color/nav_color"
+        app:itemTextColor="@color/nav_color"
+        app:itemIconSize="30dp"
+
         >
 
     </com.google.android.material.bottomnavigation.BottomNavigationView>

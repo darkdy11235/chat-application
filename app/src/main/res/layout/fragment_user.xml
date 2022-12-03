@@ -3,14 +3,31 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:paddingLeft="15dp"
+    android:paddingRight="15dp"
     tools:context=".Fragments.UserFragment">
+    <TextView
+        android:id="@+id/title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Contacts"
+        android:textColor="@color/black"
+        android:textSize="30sp"
+        android:padding="15dp"
+        android:fontFamily="@font/poppins_medium"
+        android:layout_marginBottom="10dp"
+        android:layout_marginTop="-5dp"
+        />
     <EditText
         android:id="@+id/search_users"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Search User"
+        android:layout_below="@+id/title"
+        android:background="@drawable/edit_text_bg"
+        android:textColor="#212529"
         android:padding="10dp"
-        android:textSize="16sp" />
+        android:textSize="16dp" />
     <androidx.recyclerview.widget.RecyclerView
         android:layout_below="@+id/search_users"
         android:id="@+id/recyclerView"
