@@ -8,7 +8,6 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageButton;
-import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -21,7 +20,7 @@ import com.example.chat_application.Adapter.MessagesAdapter;
 import com.example.chat_application.MainActivity;
 import com.example.chat_application.Model.Chat;
 import com.example.chat_application.R;
-import com.example.chat_application.User;
+import com.example.chat_application.Model.User;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;

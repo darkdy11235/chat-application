@@ -20,10 +20,9 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
-import com.example.chat_application.MainActivity;
 import com.example.chat_application.R;
 import com.example.chat_application.Sign_in;
-import com.example.chat_application.User;
+import com.example.chat_application.Model.User;
 import com.google.android.gms.tasks.Continuation;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;

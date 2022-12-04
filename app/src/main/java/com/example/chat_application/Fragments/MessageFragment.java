@@ -12,10 +12,9 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.chat_application.Adapter.userAdapter;
-import com.example.chat_application.Model.Chat;
 import com.example.chat_application.Model.Chatlist;
 import com.example.chat_application.R;
-import com.example.chat_application.User;
+import com.example.chat_application.Model.User;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
