@@ -23,15 +23,20 @@
             android:background="@drawable/background_right"
             android:layout_alignParentEnd="true"
             android:layout_alignParentRight="true"
-            android:padding="8dp"
+            android:paddingTop="7dp"
+            android:paddingBottom="7dp"
+            android:paddingLeft="15dp"
+            android:paddingRight="15dp"
             android:text="Message"
-            android:textColor="#ffffff"
+            android:fontFamily="@font/poppins_medium"
+            android:textColor="#212529"
             android:textSize="18sp" />
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/txt_seen"
             android:text="seen"
+            android:fontFamily="@font/poppins_medium"
             android:layout_below="@+id/show_message"
             android:layout_alignParentRight="true"
             android:layout_alignParentEnd="true" />

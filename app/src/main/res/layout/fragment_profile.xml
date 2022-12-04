@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -8,43 +9,94 @@
 
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="match_parent">
         <RelativeLayout
             android:layout_width="match_parent"
             android:padding="8dp"
-            android:layout_height="wrap_content">
+            android:layout_height="match_parent">
             <TextView
+                android:id="@+id/title"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Profile"
-                android:textSize="16sp"
-                android:textStyle="bold" />
+                android:textColor="@color/black"
+                android:textSize="30sp"
+                android:padding="15dp"
+                android:fontFamily="@font/poppins_medium"
+                android:layout_marginBottom="20dp"
+                android:layout_marginTop="-5dp"
+                />
             <de.hdodenhof.circleimageview.CircleImageView
                 android:layout_width="100dp"
                 android:layout_height="100dp"
                 android:id="@+id/profile_image"
                 android:layout_centerHorizontal="true"
-                android:layout_marginTop="50dp"
+                android:layout_marginTop="80dp"
+
                 android:src="@mipmap/ic_launcher" />
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Username"
-                android:textSize="16sp"
+                android:textSize="20dp"
                 android:textStyle="bold"
                 android:id="@+id/username"
+                android:fontFamily="@font/poppins_medium"
                 android:layout_below="@+id/profile_image"
                 android:layout_centerHorizontal="true"
                 android:layout_marginTop="20dp" />
-            <Button
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Sign Out"
-                android:id="@+id/sign_out"
-                android:layout_marginTop="20dp"
-                android:layout_marginBottom="20dp"
-                android:layout_centerHorizontal="true"
-                android:layout_below="@+id/username"/>
+            <LinearLayout
+                android:id="@+id/linearLayout"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_below="@+id/username"
+
+                android:orientation="vertical">
+                <EditText
+                    android:id="@+id/email"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+
+                    android:layout_below="@+id/title"
+                    android:fontFamily="@font/poppins_medium"
+                    android:background="@drawable/edit_text_bg"
+                    android:textColor="#212529"
+                    android:padding="15dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginBottom="5dp"
+                    android:textSize="18dp" />
+                <EditText
+
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+
+                    android:layout_below="@+id/title"
+                    android:fontFamily="@font/poppins_medium"
+                    android:background="@drawable/edit_text_bg"
+                    android:textColor="#212529"
+                    android:padding="15dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginBottom="5dp"
+                    android:textSize="18dp" />
+              <com.google.android.material.button.MaterialButton
+                    android:id="@+id/sign_out"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/username"
+                    android:paddingTop="10dp"
+                    android:paddingBottom="10dp"
+                    android:textSize="18dp"
+                    android:layout_marginTop="15dp"
+                    android:layout_marginBottom="20dp"
+                    android:layout_gravity="center_vertical"
+                    android:textStyle="bold"
+                    android:fontFamily="@font/poppins_medium"
+                    app:backgroundTint="#000000"
+                    app:cornerRadius="10dp"
+                    android:text="Sign Out" />
+
+            </LinearLayout>
+
         </RelativeLayout>
 
     </androidx.cardview.widget.CardView>
