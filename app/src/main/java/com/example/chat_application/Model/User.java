@@ -1,4 +1,4 @@
-package com.example.chat_application;
+package com.example.chat_application.Model;
 
 public class User {
     private String id;

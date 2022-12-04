@@ -2,8 +2,6 @@ package com.example.chat_application.Adapter;
 
 import android.content.Context;
 import android.content.Intent;
-import android.util.AttributeSet;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,13 +9,12 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 import com.example.chat_application.Model.Chat;
 import com.example.chat_application.R;
-import com.example.chat_application.User;
+import com.example.chat_application.Model.User;
 import com.example.chat_application.messages.MessageActivity;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
